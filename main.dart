@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './settingsAbout.dart' as about;
+import './settingsNotifications.dart' as notifications;
+import './settingsProfile.dart' as profile;
 
 void main() => runApp(MyApp());
 
@@ -10,95 +13,102 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark));
     return MaterialApp(
-        home: SettingState()
+        home: new HomeSetter()
       //MaterialApp is the initial state
     );
   }
 }
-class SettingState extends StatefulWidget {
+
+class HomeSetter extends StatefulWidget{
   @override
-  SettingPage createState() => new SettingPage();
+  Home createState() => new Home();
 }
 
-class SettingPage extends State<SettingState> {
-  bool ifPressed = true;
+class Home extends State<HomeSetter> with SingleTickerProviderStateMixin {
+
+  TabController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = new TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
       backgroundColor: Colors.grey[350],
       body: Container(
         child: Stack(
           children: <Widget>[
 
-            Positioned(
-              left: 30,
-              bottom: 800.0,
-              child: Text(
-                "Settings",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+            Positioned( //Top Section
+              height: 150,
+              top: 10,
+              left: 0,
+              width: 412,
+              child: Stack(
+                children: <Widget>[
 
-                ),
-              ),
-            ),
-
-            Positioned(
-              left: 30,
-              bottom: 50,
-              height: 50,
-              width: 170,
-              child: InkWell(
-                splashColor: Colors.transparent,
-                onTap: (){
-                  setState(() {
-                    ifPressed = !ifPressed;
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 50.0,vertical: 8.0),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.blueAccent[400],
-                        Colors.blueAccent[400],
-                        Colors.blueAccent[700],
-                        Colors.blueAccent[700],
-                      ],
-                      stops: [0.25, 0.50, 0.75, 1],
-
+                  Positioned(
+                    height: 30,
+                    width: 30,
+                    top: 20,
+                    left: 10,
+                    child: InkWell(
+                      onTap: null,
+                      child: Image.asset('assets/backArrow.png'),
                     ),
-                    border: Border.all(
+                  ), // Back Arrow
 
-                        color: Colors.white,
-                        width: ifPressed ? 3.0 : 0.0,
-                    ),
-                    borderRadius: BorderRadius.circular(35.0),
-
-
-                  ),
-                  child: Text(
-                    "Back",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-
-
+                  Positioned( //Cog Icon
+                      height: 30,
+                      width: 30,
+                      left: 180,
+                      top: 20,
+                      child: InkWell(
+                        child: Image.asset('assets/cog3.png'),
+                      )
                   ),
 
+                  Positioned.fill(
+                    top: 60,
+                    child: Scaffold(
+                      appBar: new AppBar(
+                          backgroundColor: Colors.grey[350],
+                          elevation: 0,
+                          bottom: TabBar(
+                              controller: controller,
+                              tabs: <Tab>[
+                                Tab(icon: Image.asset('assets/house.png'),),
+                                Tab(icon: Image.asset('assets/profileIcon.png'),),
+                                Tab(icon: Image.asset('assets/bellIcon.png'),),
+                                Tab(icon: Image.asset('assets/qMark.png'),),
+                              ]
+                          )
+                      ),
+                      body: new TabBarView(
+                        controller: controller,
+                          children: <Widget>[
+                            new profile.Profile(),
+                            new notifications.Notifications(),
+                            new about.About(),
+                          ]),
+                    )
+                  )
 
-                ),
-              ),
+               ],
+             ),  //Top Section
             ),
-            ),
-
-
           ],
         ),
       ),
-
     );
   }
 }
