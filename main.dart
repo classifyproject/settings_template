@@ -26,7 +26,17 @@ class HomeSetter extends StatefulWidget{
 
 class Home extends State<HomeSetter> with SingleTickerProviderStateMixin {
 
+  double sqrSize = 30.0;
+
   TabController controller;
+  TextSpan themeText = new TextSpan(
+    text: "Theme",
+    style: TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.bold,
+      fontSize: 25
+    )
+  );
 
   @override
   void initState() {
@@ -43,14 +53,14 @@ class Home extends State<HomeSetter> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.grey[350],
+      backgroundColor: Colors.white,
       body: Container(
         child: Stack(
           children: <Widget>[
 
             Positioned( //Top Section
               height: 150,
-              top: 10,
+              top: 20,
               left: 0,
               width: 412,
               child: Stack(
@@ -60,7 +70,7 @@ class Home extends State<HomeSetter> with SingleTickerProviderStateMixin {
                     height: 30,
                     width: 30,
                     top: 20,
-                    left: 10,
+                    left: 15,
                     child: InkWell(
                       onTap: null,
                       child: Image.asset('assets/backArrow.png'),
@@ -70,7 +80,7 @@ class Home extends State<HomeSetter> with SingleTickerProviderStateMixin {
                   Positioned( //Cog Icon
                       height: 30,
                       width: 30,
-                      left: 180,
+                      left: 190,
                       top: 20,
                       child: InkWell(
                         child: Image.asset('assets/cog3.png'),
@@ -78,34 +88,137 @@ class Home extends State<HomeSetter> with SingleTickerProviderStateMixin {
                   ),
 
                   Positioned.fill(
-                    top: 60,
-                    child: Scaffold(
-                      appBar: new AppBar(
-                          backgroundColor: Colors.grey[350],
-                          elevation: 0,
-                          bottom: TabBar(
-                              controller: controller,
-                              tabs: <Tab>[
-                                Tab(icon: Image.asset('assets/house.png'),),
-                                Tab(icon: Image.asset('assets/profileIcon.png'),),
-                                Tab(icon: Image.asset('assets/bellIcon.png'),),
-                                Tab(icon: Image.asset('assets/qMark.png'),),
-                              ]
+                    top: 40,
+                    child: Row(
+                      children: <Widget>[
+
+                        Expanded(
+                        child: Container(
+                            height: sqrSize,
+                            width: sqrSize,
+                          child: Opacity(
+                            opacity: 0.5,
+                            child: InkWell(
+                              child: Image.asset('assets/house.png'),
                           )
-                      ),
-                      body: new TabBarView(
-                        controller: controller,
-                          children: <Widget>[
-                            new profile.Profile(),
-                            new notifications.Notifications(),
-                            new about.About(),
-                          ]),
-                    )
+                          )
+                        ),
+                        ),
+
+                        Expanded(
+                          child: Container(
+                            height: sqrSize,
+                            width: sqrSize,
+                            child: Opacity(
+                              opacity: 0.5,
+                              child: InkWell(
+                                child: Image.asset('assets/profileIcon.png'),
+                            ),
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                          child: Container(
+                            height: sqrSize,
+                            width: sqrSize,
+                            child: Opacity(
+                              opacity: 0.5,
+                              child: InkWell(
+                                child: Image.asset('assets/bellIcon.png'),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                          child: Container(
+                            height: sqrSize + 5,
+                            width: sqrSize + 5,
+                            child: Opacity(
+                              opacity: 0.5,
+                              child: InkWell(
+                                child: Image.asset('assets/qMark.png'),
+                             ),
+                            ),
+                          ),
+                        ),
+
+                      ],
+                    ),
                   )
 
                ],
              ),  //Top Section
             ),
+
+            Positioned( // Body
+              top: 150,
+              width: 412,
+              height: 300,
+              child: Stack(
+                children: <Widget>[
+
+                  Positioned(
+                    left: 20,
+                    top: 50,
+                    child: Container(
+                      child: Text.rich(
+                        themeText
+                      ),
+                    ),
+                  ),
+
+                  Positioned.fill(
+                    child: Row(
+                      children: <Widget>[
+
+                        Expanded(
+                          child: Container(
+                            width: sqrSize,
+                            height: sqrSize,
+                            child: InkWell(
+                                child: Image.asset("assets/circle.png"),
+                              onTap: null,
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                            child: InkWell(
+                                child: Container(
+                                  width: sqrSize,
+                                  height: sqrSize,
+                                decoration: ShapeDecoration(
+                                  color: Colors.green,
+                                  shape: CircleBorder(
+                                    
+                                  )
+                                ),
+                                child: Image.asset("assets/circle.png")
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                          child: Container(
+                            width: sqrSize,
+                            height: sqrSize,
+                            child: InkWell(
+                                child: Image.asset("assets/circle.png")
+                            ),
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
+
+            ),
+
           ],
         ),
       ),
