@@ -12,6 +12,8 @@ bool notifVal_5 = false;
 bool notifVal_6 = false;
 bool notifVal_7 = false;
 
+bool ifPressed = false;
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class HomeScreen extends State<HomeState> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: Container(
         child: Stack(
           children: <Widget>[
@@ -62,7 +64,7 @@ class HomeScreen extends State<HomeState> {
                   Positioned(
                     height: 30,
                     width: 30,
-                    top: 20,
+                    top: 30,
                     left: 15,
                     child: InkWell(
                       onTap: (){},
@@ -74,14 +76,14 @@ class HomeScreen extends State<HomeState> {
                       height: 30,
                       width: 30,
                       left: 190,
-                      top: 20,
+                      top: 30,
                       child: InkWell(
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
 
                   Positioned.fill(
-                    top: 40,
+                    top: 90,
                     child: Row(
                       children: <Widget>[
 
@@ -90,10 +92,11 @@ class HomeScreen extends State<HomeState> {
                             height: sqrSize,
                             width: sqrSize,
                           child: Opacity(
-                            opacity: 0.5,
+                            opacity: 1,
                             child: InkWell(
                               child: Image.asset('assets/house.png'),
                               onTap: (){},
+
                           )
                           )
                         ),
@@ -152,8 +155,17 @@ class HomeScreen extends State<HomeState> {
 
                       ],
                     ),
-                  )
+                  ),
 
+                  Positioned(
+                    top: 138,
+                    left: 43.5,
+                    child: TabPageSelectorIndicator(
+                     backgroundColor: Colors.black,
+                     size: 8.0,
+                      borderColor: Colors.transparent,
+                    ),
+                  )
                ],
              ),  //Top Section
             ),
@@ -180,17 +192,41 @@ class HomeScreen extends State<HomeState> {
                       children: <Widget>[
 
                         Positioned(
-                          height: 60,
-                          width: 60,
+                          top: 150,
+                          left: 20,
                           child: InkWell(
-                              borderRadius: BorderRadius.circular(1000),
-                              onTap: () {},
+                            onTap: () {
+                              setState(() {
+                                ifPressed = !ifPressed;
+                              });
+                            },
+                            splashColor: Colors.transparent,
+                            child: Container(
+                              width: 30.0,
+                              height: 30.0,
+                              alignment: Alignment.topLeft,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Colors.red,
+                                    Colors.red,
+                                    Colors.redAccent,
+                                    Colors.redAccent,
+                                  ],
+                                  stops: [0.25, 0.50, 0.75, 1],
+                                ),
+                                border: Border.all(color: Color.fromRGBO(191, 191, 191, ifPressed ?1.0 : 0.0), width: 3.0),
+                                borderRadius: BorderRadius.circular(35.0),
+                              ),
+                            ),
                           ),
                         )
+
+
+
                       ],
                     ),
                   ),
-
                 ],
               ),
 
@@ -213,7 +249,7 @@ class ProfileScreen extends State<ProfileState>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: Container(
         child: Stack(
           children: <Widget>[
@@ -229,7 +265,7 @@ class ProfileScreen extends State<ProfileState>{
                   Positioned(
                     height: 30,
                     width: 30,
-                    top: 20,
+                    top: 30,
                     left: 15,
                     child: InkWell(
                       onTap: (){},
@@ -241,14 +277,14 @@ class ProfileScreen extends State<ProfileState>{
                       height: 30,
                       width: 30,
                       left: 190,
-                      top: 20,
+                      top: 30,
                       child: InkWell(
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
 
                   Positioned.fill(
-                    top: 40,
+                    top: 90,
                     child: Row(
                       children: <Widget>[
 
@@ -274,7 +310,7 @@ class ProfileScreen extends State<ProfileState>{
                             height: sqrSize,
                             width: sqrSize,
                             child: Opacity(
-                              opacity: 0.5,
+                              opacity: 1,
                               child: InkWell(
                                 child: Image.asset('assets/profileIcon.png'),
                                 onTap: (){},
@@ -407,7 +443,7 @@ class NotifScreen extends State<NotifState>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: Container(
         child: Stack(
           children: <Widget>[
@@ -423,7 +459,7 @@ class NotifScreen extends State<NotifState>{
                   Positioned(
                     height: 30,
                     width: 30,
-                    top: 20,
+                    top: 30,
                     left: 15,
                     child: InkWell(
                       onTap: (){},
@@ -435,14 +471,14 @@ class NotifScreen extends State<NotifState>{
                       height: 30,
                       width: 30,
                       left: 190,
-                      top: 20,
+                      top: 30,
                       child: InkWell(
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
 
                   Positioned.fill(
-                    top: 40,
+                    top: 90,
                     child: Row(
                       children: <Widget>[
 
@@ -485,7 +521,7 @@ class NotifScreen extends State<NotifState>{
                             height: sqrSize,
                             width: sqrSize,
                             child: Opacity(
-                              opacity: 0.5,
+                              opacity: 1,
                               child: InkWell(
                                 child: Image.asset('assets/bellIcon.png'),
                                 onTap: (){},
@@ -808,7 +844,7 @@ class AboutScreen extends State<AboutState>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: Container(
         child: Stack(
           children: <Widget>[
@@ -824,7 +860,7 @@ class AboutScreen extends State<AboutState>{
                   Positioned(
                     height: 30,
                     width: 30,
-                    top: 20,
+                    top: 30,
                     left: 15,
                     child: InkWell(
                       onTap: (){},
@@ -836,14 +872,14 @@ class AboutScreen extends State<AboutState>{
                       height: 30,
                       width: 30,
                       left: 190,
-                      top: 20,
+                      top: 30,
                       child: InkWell(
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
 
                   Positioned.fill(
-                    top: 40,
+                    top: 90,
                     child: Row(
                       children: <Widget>[
 
@@ -903,7 +939,7 @@ class AboutScreen extends State<AboutState>{
                             height: sqrSize + 5,
                             width: sqrSize + 5,
                             child: Opacity(
-                              opacity: 0.5,
+                              opacity: 1,
                               child: InkWell(
                                 child: Image.asset('assets/qMark.png'),
                                 onTap: (){},
