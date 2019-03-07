@@ -54,7 +54,7 @@ class HomeScreen extends State<HomeState> {
           children: <Widget>[
 
             Positioned( //Top Section
-              height: 150,
+              height: 160,
               top: 20,
               left: 0,
               width: 412,
@@ -68,6 +68,7 @@ class HomeScreen extends State<HomeState> {
                     left: 15,
                     child: InkWell(
                       onTap: (){},
+                      splashColor: Colors.transparent,
                       child: Image.asset('assets/backArrow.png'),
                     ),
                   ), // Back Arrow
@@ -78,6 +79,7 @@ class HomeScreen extends State<HomeState> {
                       left: 190,
                       top: 30,
                       child: InkWell(
+                        splashColor: Colors.transparent,
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
@@ -94,6 +96,7 @@ class HomeScreen extends State<HomeState> {
                           child: Opacity(
                             opacity: 1,
                             child: InkWell(
+                              splashColor: Colors.transparent,
                               child: Image.asset('assets/house.png'),
                               onTap: (){},
 
@@ -109,6 +112,7 @@ class HomeScreen extends State<HomeState> {
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/profileIcon.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -126,6 +130,7 @@ class HomeScreen extends State<HomeState> {
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/bellIcon.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -143,6 +148,7 @@ class HomeScreen extends State<HomeState> {
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/qMark.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -158,7 +164,7 @@ class HomeScreen extends State<HomeState> {
                   ),
 
                   Positioned(
-                    top: 138,
+                    top: 140,
                     left: 43.5,
                     child: TabPageSelectorIndicator(
                      backgroundColor: Colors.black,
@@ -171,7 +177,7 @@ class HomeScreen extends State<HomeState> {
             ),
 
             Positioned( // Body
-              top: 150,
+              top: 160,
               width: 412,
               height: 300,
               child: Stack(
@@ -269,6 +275,7 @@ class ProfileScreen extends State<ProfileState>{
                     left: 15,
                     child: InkWell(
                       onTap: (){},
+                      splashColor: Colors.transparent,
                       child: Image.asset('assets/backArrow.png'),
                     ),
                   ), // Back Arrow
@@ -279,6 +286,7 @@ class ProfileScreen extends State<ProfileState>{
                       left: 190,
                       top: 30,
                       child: InkWell(
+                        splashColor: Colors.transparent,
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
@@ -295,6 +303,7 @@ class ProfileScreen extends State<ProfileState>{
                               child: Opacity(
                                   opacity: 0.5,
                                   child: InkWell(
+                                    splashColor: Colors.transparent,
                                     child: Image.asset('assets/house.png'),
                                     onTap: () {
                                       Navigator.push(context,
@@ -312,6 +321,7 @@ class ProfileScreen extends State<ProfileState>{
                             child: Opacity(
                               opacity: 1,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/profileIcon.png'),
                                 onTap: (){},
                               ),
@@ -326,6 +336,7 @@ class ProfileScreen extends State<ProfileState>{
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/bellIcon.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -343,6 +354,7 @@ class ProfileScreen extends State<ProfileState>{
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/qMark.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -463,6 +475,7 @@ class NotifScreen extends State<NotifState>{
                     left: 15,
                     child: InkWell(
                       onTap: (){},
+                      splashColor: Colors.transparent,
                       child: Image.asset('assets/backArrow.png'),
                     ),
                   ), // Back Arrow
@@ -473,6 +486,7 @@ class NotifScreen extends State<NotifState>{
                       left: 190,
                       top: 30,
                       child: InkWell(
+                        splashColor: Colors.transparent,
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
@@ -489,6 +503,7 @@ class NotifScreen extends State<NotifState>{
                               child: Opacity(
                                   opacity: 0.5,
                                   child: InkWell(
+                                    splashColor: Colors.transparent,
                                     child: Image.asset('assets/house.png'),
                                     onTap: () {
                                       Navigator.push(context,
@@ -506,6 +521,7 @@ class NotifScreen extends State<NotifState>{
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/profileIcon.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -523,6 +539,7 @@ class NotifScreen extends State<NotifState>{
                             child: Opacity(
                               opacity: 1,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/bellIcon.png'),
                                 onTap: (){},
                               ),
@@ -537,6 +554,7 @@ class NotifScreen extends State<NotifState>{
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/qMark.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -864,6 +882,7 @@ class AboutScreen extends State<AboutState>{
                     left: 15,
                     child: InkWell(
                       onTap: (){},
+                      splashColor: Colors.transparent,
                       child: Image.asset('assets/backArrow.png'),
                     ),
                   ), // Back Arrow
@@ -874,6 +893,7 @@ class AboutScreen extends State<AboutState>{
                       left: 190,
                       top: 30,
                       child: InkWell(
+                        splashColor: Colors.transparent,
                         child: Image.asset('assets/cog3.png'),
                       )
                   ),
@@ -890,6 +910,7 @@ class AboutScreen extends State<AboutState>{
                               child: Opacity(
                                   opacity: 0.5,
                                   child: InkWell(
+                                    splashColor: Colors.transparent,
                                     child: Image.asset('assets/house.png'),
                                     onTap: () {
                                       Navigator.push(context,
@@ -907,6 +928,7 @@ class AboutScreen extends State<AboutState>{
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/profileIcon.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -924,6 +946,7 @@ class AboutScreen extends State<AboutState>{
                             child: Opacity(
                               opacity: 0.5,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/bellIcon.png'),
                                 onTap: () {
                                   Navigator.push(context,
@@ -941,6 +964,7 @@ class AboutScreen extends State<AboutState>{
                             child: Opacity(
                               opacity: 1,
                               child: InkWell(
+                                splashColor: Colors.transparent,
                                 child: Image.asset('assets/qMark.png'),
                                 onTap: (){},
 
